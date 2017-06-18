@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" type="text/css" href="file:///D:/mysolutions/csstest//CSS/test.css" />
- <script src="file:///D:/mysolutions/csstest/CSS/echarts-all.js"></script>
+<link rel="stylesheet" type="text/css" href="/static/CSS/test.css" />
+ <script src="/static/js/echarts-all.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
 
 <body >
-<div id="main" style="min-height:400px">123</div>
-<div id='d01'style='background-color:#5ac249'>1</div>
-<div id='d02'><div id='d021'>21</div><div id='d022'>22</div></div>
-<div id='d03'>3</div>
+<div>
+<li onclick="drawline()">折线图</li>
+<li onclick="drawpie()">饼图</li>
+<li onclick="drawbar()">柱状图</li>
+<li onclick="drawfunnel()">漏斗图</li>
+</div>
+<div id="line" style="min-height:400px"></div>
+<div id="pie" style="min-height:400px"></div>
+<div id="bar" style="min-height:400px"></div>
+<div id="funnel" style="min-height:400px"></div>
  <script type="text/javascript">
         // 基于准备好的dom，初始化echarts图表
-        var myChart = echarts.init(document.getElementById('main')); 
+        //var myChart = echarts.init(document.getElementById('main')); 
         
-        var option = {
+        var line = {
 			"title":{"text":"折线图"},
             tooltip: {
                 "show": true,
@@ -43,8 +49,11 @@
             ]
         };
 
-        // 为echarts对象加载数据 
-        myChart.setOption(option); 
+        // 为echarts对象加载数据
+		function drawline(){
+		var myChart = echarts.init(document.getElementById('line'));
+        myChart.setOption(line);
+		}		
    
 </script> 
 </body>
